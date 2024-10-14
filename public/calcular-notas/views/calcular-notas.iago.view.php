@@ -35,7 +35,7 @@
                     <div class="mb-3">
 
                         <label for="texto">Datos a analizar:</label>
-                        <?php if (isset($resultados) && !empty($resultados)){ ?>
+                        <?php if (isset($data["resultados"])){ ?>
                         <table border="1px solid">
                             <thead>
                             <th>Modulo</th>
@@ -50,11 +50,12 @@
                             <tbody>
                             <?php }?>
                             <?php
-                            foreach ($resultados as $asignatura =>$result) {
+
+                            foreach ($data["resultados"] as $asignatura =>$result) {
                                 echo "<tr>";
 
                                 echo "<td>" . $result['asignatura'] . "</td>";
-                                //echo "<td>" . $result['media'] . "</td>";
+                                echo "<td>" . $result['media'] . "</td>";
                                 echo "<td>" . $result['numeroSuspensos'] . "</td>";
                                 echo "<td>" . $result['numeroAprobados'] . "</td>";
                                 echo "<td>" . $result['notaMasAlta'] . "</td>";

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-$data = [];
+
 if(isset($_POST['txt']))
 {
     $resultados = [];
@@ -20,49 +20,48 @@ if(isset($_POST['txt']))
 
 
         foreach ($alumnos as $alumno =>$notas) {
-
             foreach ($notas as $nota) {
 
                 //Sumamos las notas
                 $sumaNotas+=$nota;
-
-                var_dump($sumaNotas);
+                $numAlumnos++;
 
                 //Contamos el numero de aprobados y el numero de suspensos que tenemos
-                if($notas < 5){
+                if($nota < 5){
                     $numeroSuspensos++;
                 }
-                else if($notas >= 5 && $notas <= 10){
+                else if($nota >= 5 && $nota <= 10){
                     $numeroAprobados++;
                 }
 
                 //Cual es la nota mas alta y quien la saca
-                if($notas>$notaMasAlta){
-                    $notaMasAlta=$notas;
+                if($nota>$notaMasAlta){
+                    $notaMasAlta=$nota;
                     $quienNotaMasAlta=$alumno;
 
                 }
 
-                if($notas<$notaMasBaja){
-                    $notaMasBaja=$notas;
-                    $quienNotaBaja=$alumno;
+                if($nota<$notaMasBaja) {
+                    $notaMasBaja = $nota;
+                    $quienNotaBaja = $alumno;
                 }
-                $notaMedia = $sumaNotas/$numAlumnos;
             }
+            $notaMedia = round($sumaNotas/$numAlumnos,2);
         }
+        $resultados[$asignatura]=[
+            'asignatura'=>$asignatura,
+            'media' => $notaMedia,
+            'numeroSuspensos' => $numeroSuspensos,
+            'numeroAprobados' => $numeroAprobados,
+            'notaMasAlta' => $notaMasAlta,
+            'quienNotaMasAlta' => $quienNotaMasAlta,
+            'notaMasBaja' => $notaMasBaja,
+            'quienNotaMasBaja' => $quienNotaBaja,
+        ];
     }
 
-    $resultados[$asignatura]=[
-        'asignatura'=>$asignatura,
-        'media' => $notaMedia,
-        'numeroSuspensos' => $numeroSuspensos,
-        'numeroAprobados' => $numeroAprobados,
-        'notaMasAlta' => $notaMasAlta,
-        'quienNotaMasAlta' => $quienNotaMasAlta,
-        'notaMasBaja' => $notaMasBaja,
-        'quienNotaMasBaja' => $quienNotaMasBaja,
-    ];
 
+    $data["resultados"] = $resultados;
 }
 
 
@@ -71,5 +70,5 @@ if(isset($_POST['txt']))
 * Llamamos a las vistas
 */
 include 'views/templates/header.php';
-include 'views/calcular_notas.iago.view.php';
+include 'views/calcular-notas.iago.view.php';
 include 'views/templates/footer.php';

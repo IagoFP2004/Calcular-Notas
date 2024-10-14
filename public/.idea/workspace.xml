@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c25d7499-c3af-473e-ba2f-f9fb072114b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ud3-ejemplos/base-tareas/controllers/basicos.controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ud3/controllers/basicos.controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ud3/controllers/decision.controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ud3/views/basicos.view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ud3/views/decision.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ud3-ejemplos/ejercicios/tiposdato.php" beforeDir="false" afterPath="$PROJECT_DIR$/ud3-ejemplos/ejercicios/tiposdato.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/ud3/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="6392a962-92cc-45d8-a699-cd4f0ba1a157" name="localhost" port="8080" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/var/www/html/public" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/summernote/plugin" />
+      <path value="$PROJECT_DIR$/vendor/summernote/lang" />
+      <path value="$PROJECT_DIR$/vendor/summernote/font" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/scss" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/svgs" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/js" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/metadata" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/css" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/less" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/webfonts" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/scss" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/sprites" />
+      <path value="$PROJECT_DIR$/ud3/vendor/composer" />
+      <path value="$PROJECT_DIR$/ud3/vendor/summernote/plugin" />
+      <path value="$PROJECT_DIR$/ud3/vendor/summernote/lang" />
+      <path value="$PROJECT_DIR$/ud3/vendor/summernote/font" />
+      <path value="$PROJECT_DIR$/ud3/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/ud3/vendor/bootstrap/scss" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/svgs" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/js" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/metadata" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/css" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/less" />
+      <path value="$PROJECT_DIR$/ud3/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/webfonts" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/scss" />
+      <path value="$PROJECT_DIR$/ud3/vendor/fontawesome-free/sprites" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2mHm5UEzEWyUy0ZZ3v7wGvtBL4K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHP Script.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/iago.franciscoperez/Escritorio/DWCS/docker-mysql/docker-compose.yml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ud3/views" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.tiposdato.php">
+    <configuration name="01-index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/01-index.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="tiposdato.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/ud3-ejemplos/ejercicios/tiposdato.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.tiposdato.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c25d7499-c3af-473e-ba2f-f9fb072114b3" name="Changes" comment="" />
+      <created>1726741692632</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726741692632</updated>
+      <workItem from="1726741693660" duration="1507000" />
+      <workItem from="1726816267895" duration="2334000" />
+      <workItem from="1726819039684" duration="532000" />
+      <workItem from="1727100604114" duration="1028000" />
+      <workItem from="1727101820384" duration="6087000" />
+      <workItem from="1727254372138" duration="9701000" />
+      <workItem from="1727337319826" duration="39000" />
+      <workItem from="1727340386451" duration="7925000" />
+      <workItem from="1727705434744" duration="3752000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

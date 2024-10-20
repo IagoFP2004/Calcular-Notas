@@ -64,7 +64,33 @@ if(isset($_POST['txt'])) {
     }
 
     $data["resultados"] = $resultados;
+    $data["listas"]=listaAlumnos($alumnos);
 }
+
+function listaAlumnos(array $alumnos) :array
+{
+    $json = json_decode($_POST['txt'], true);
+    $alumnosSuspensos = [];
+    foreach ($json as $asignatura =>$alumnos){
+
+        foreach ($alumnos as $alumno =>$notas){
+            $mediaAsignaturaAlumno = round(array_sum($notas)/count($notas),2);
+
+            if(!isset($alumnosSuspensos[$alumno])){
+               $alumnosSuspensos[$alumno]=0;
+           }
+            if($mediaAsignaturaAlumno<5){
+               $alumnosSuspensos[$alumno]++;
+           }
+
+        }
+
+
+    }
+
+    return $alumnosSuspensos;
+}
+
 
 /*
 * Llamamos a las vistas

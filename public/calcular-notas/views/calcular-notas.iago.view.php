@@ -12,7 +12,96 @@
 
     <div class="col-12">
 
+
         <div class="card shadow mb-4">
+
+            <?php if (isset($data["resultados"])){ ?>
+            <table border="1px solid">
+                <thead>
+                <th>Modulo</th>
+                <th>Media</th>
+                <th>nSuspensos</th>
+                <th>nAprobados</th>
+                <th>Mas Alta</th>
+                <th>Quien</th>
+                <th>Mas Baja</th>
+                <th>Quien</th>
+                </thead>
+                <tbody>
+                <?php }?>
+                <?php
+
+                foreach ($data["resultados"] as $asignatura =>$result) {
+                    echo "<tr>";
+
+                    echo "<td>" . $result['asignatura'] . "</td>";
+                    echo "<td>" . $result['media'] . "</td>";
+                    echo "<td>" . $result['numeroSuspensos'] . "</td>";
+                    echo "<td>" . $result['numeroAprobados'] . "</td>";
+                    echo "<td>" . $result['notaMasAlta'] . "</td>";
+                    echo "<td>" . $result['quienNotaMasAlta'] . "</td>";
+                    echo "<td>" . $result['notaMasBaja'] . "</td>";
+                    echo "<td>" . $result['quienNotaMasBaja'] . "</td>";
+
+                    echo "</tr>";
+
+                }
+                ?>
+                </tbody>
+            </table>
+
+            <div class="col-12 col-lg-6">
+                <div class="alert alert-success" >
+                    <?php
+                    foreach($data['listas'] as $alumno=>$suspensos){
+
+                        if($suspensos==0){
+                            echo $alumno;
+                        }
+
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="alert alert-warning">
+                    <?php
+                    foreach($data['listas'] as $alumno=>$suspensos){
+
+                        if($suspensos==1){
+                            echo $alumno;
+                        }
+
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="alert alert-danger">
+                    <?php
+                    foreach($data['listas'] as $alumno=>$suspensos){
+
+                        if($suspensos>1){
+                            echo $alumno;
+                        }
+
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="alert alert-info">
+                    <?php
+                    foreach($data['listas'] as $alumno=>$suspensos){
+
+                        if($suspensos==1||$suspensos==0){
+                            echo $alumno;
+                        }
+
+                    }
+                    ?>
+                </div>
+            </div>
 
             <div
 
@@ -35,38 +124,7 @@
                     <div class="mb-3">
 
                         <label for="texto">Datos a analizar:</label>
-                        <?php if (isset($data["resultados"])){ ?>
-                        <table border="1px solid">
-                            <thead>
-                            <th>Modulo</th>
-                            <th>Media</th>
-                            <th>nSuspensos</th>
-                            <th>nAprobados</th>
-                            <th>Mas Alta</th>
-                            <th>Quien</th>
-                            <th>Mas Baja</th>
-                            <th>Quien</th>
-                            </thead>
-                            <tbody>
-                            <?php }?>
-                            <?php
 
-                            foreach ($data["resultados"] as $asignatura =>$result) {
-                                echo "<tr>";
-
-                                echo "<td>" . $result['asignatura'] . "</td>";
-                                echo "<td>" . $result['media'] . "</td>";
-                                echo "<td>" . $result['numeroSuspensos'] . "</td>";
-                                echo "<td>" . $result['numeroAprobados'] . "</td>";
-                                echo "<td>" . $result['notaMasAlta'] . "</td>";
-                                echo "<td>" . $result['quienNotaMasAlta'] . "</td>";
-                                echo "<td>" . $result['notaMasBaja'] . "</td>";
-                                echo "<td>" . $result['quienNotaMasBaja'] . "</td>";
-
-                                echo "</tr>";
-
-                            }
-                            ?>
                             <textarea class="form-control" name="txt" id="txt" rows="10" placeholder="Inserte el json a analizar"><?php echo isset($data['input']['texto']) ? $data['input']['texto'] : ''; ?></textarea>
 
                             <p class="text-danger small"><?php echo isset($data['errores']['texto']) ? $data['errores']['texto'] : ''; ?></p>

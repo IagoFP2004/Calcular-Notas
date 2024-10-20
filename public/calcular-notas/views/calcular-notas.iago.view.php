@@ -26,7 +26,8 @@
                 <th>Quien</th>
                 <th>Mas Baja</th>
                 <th>Quien</th>
-                </thead>
+                </thead>git pull origin main
+
                 <tbody>
                 <?php }?>
                 <?php
@@ -51,12 +52,13 @@
             </table>
 
             <div class="col-12 col-lg-6">
+                <?php if(isset($data['listas'])){?>
                 <div class="alert alert-success" >
                     <?php
                     foreach($data['listas'] as $alumno=>$suspensos){
 
                         if($suspensos==0){
-                            echo $alumno;
+                            echo"<li>".$alumno."</li>";
                         }
 
                     }
@@ -69,7 +71,7 @@
                     foreach($data['listas'] as $alumno=>$suspensos){
 
                         if($suspensos==1){
-                            echo $alumno;
+                            echo"<li>".$alumno."</li>";
                         }
 
                     }
@@ -82,7 +84,7 @@
                     foreach($data['listas'] as $alumno=>$suspensos){
 
                         if($suspensos>1){
-                            echo $alumno;
+                            echo"<li>".$alumno."</li>";
                         }
 
                     }
@@ -95,14 +97,14 @@
                     foreach($data['listas'] as $alumno=>$suspensos){
 
                         if($suspensos==1||$suspensos==0){
-                            echo $alumno;
+                            echo"<li>".$alumno."</li>";
                         }
 
                     }
                     ?>
                 </div>
             </div>
-
+            <?php }?>
             <div
 
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

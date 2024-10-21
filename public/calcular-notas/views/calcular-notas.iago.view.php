@@ -50,7 +50,7 @@
                 ?>
                 </tbody>
             </table>
-
+            <div class="row">
             <div class="col-12 col-lg-6">
                 <?php if(isset($data['listas'])){?>
                 <div class="alert alert-success" >
@@ -105,6 +105,7 @@
                 </div>
             </div>
             <?php }?>
+            </div>
             <div
 
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

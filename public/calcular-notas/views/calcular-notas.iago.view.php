@@ -9,13 +9,9 @@
 <!-- Content Row -->
 
 <div class="row">
-
     <div class="col-12">
-
-
-        <div class="card shadow mb-4">
-
             <?php if (isset($data["resultados"])){ ?>
+        <div class="card shadow mb-4">
             <table border="1px solid">
                 <thead>
                 <th>Modulo</th>
@@ -26,10 +22,9 @@
                 <th>Quien</th>
                 <th>Mas Baja</th>
                 <th>Quien</th>
-                </thead>git pull origin main
+                </thead>
 
                 <tbody>
-                <?php }?>
                 <?php
 
                 foreach ($data["resultados"] as $asignatura =>$result) {
@@ -48,67 +43,69 @@
 
                 }
                 ?>
+                <?php }?>
                 </tbody>
             </table>
+
             <div class="row">
-            <div class="col-12 col-lg-6">
-                <?php if(isset($data['listas'])){?>
-                <div class="alert alert-success" >
-                    <?php
-                    foreach($data['listas'] as $alumno=>$suspensos){
+                <div class="col-12 col-lg-6">
+                    <?php if(isset($data['listas'])){?>
+                    <div class="alert alert-success" >
+                        <?php
+                        foreach($data['listas'] as $alumno=>$suspensos){
 
-                        if($suspensos==0){
-                            echo"<li>".$alumno."</li>";
+                            if($suspensos==0){
+                                echo"<li>".$alumno."</li>";
+                            }
+
                         }
+                        ?>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="alert alert-warning">
+                        <?php
+                        foreach($data['listas'] as $alumno=>$suspensos){
 
-                    }
-                    ?>
+                            if($suspensos==1){
+                                echo"<li>".$alumno."</li>";
+                            }
+
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="alert alert-danger">
+                        <?php
+                        foreach($data['listas'] as $alumno=>$suspensos){
+
+                            if($suspensos>1){
+                                echo"<li>".$alumno."</li>";
+                            }
+
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="alert alert-info">
+                        <?php
+                        foreach($data['listas'] as $alumno=>$suspensos){
+
+                            if($suspensos==1||$suspensos==0){
+                                echo"<li>".$alumno."</li>";
+                            }
+
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="alert alert-warning">
-                    <?php
-                    foreach($data['listas'] as $alumno=>$suspensos){
-
-                        if($suspensos==1){
-                            echo"<li>".$alumno."</li>";
-                        }
-
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="alert alert-danger">
-                    <?php
-                    foreach($data['listas'] as $alumno=>$suspensos){
-
-                        if($suspensos>1){
-                            echo"<li>".$alumno."</li>";
-                        }
-
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="alert alert-info">
-                    <?php
-                    foreach($data['listas'] as $alumno=>$suspensos){
-
-                        if($suspensos==1||$suspensos==0){
-                            echo"<li>".$alumno."</li>";
-                        }
-
-                    }
-                    ?>
-                </div>
-            </div>
-            <?php }?>
-            </div>
+                <?php }?>
             <div
 
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                 <h6 class="m-0 font-weight-bold text-primary">Datos asignaturas</h6>
 
@@ -128,9 +125,9 @@
 
                         <label for="texto">Datos a analizar:</label>
 
-                            <textarea class="form-control" name="txt" id="txt" rows="10" placeholder="Inserte el json a analizar"><?php echo isset($data['input']['texto']) ? $data['input']['texto'] : ''; ?></textarea>
+                        <textarea class="form-control" name="txt" id="txt" rows="10" placeholder="Inserte el json a analizar"><?php echo isset($data['input']['texto']) ? $data['input']['texto'] : ''; ?></textarea>
 
-                            <p class="text-danger small"><?php echo isset($data['errores']['texto']) ? $data['errores']['texto'] : ''; ?></p>
+                        <p class="text-danger small"><?php echo isset($data['errores']['texto']) ? $data['errores']['texto'] : ''; ?></p>
 
                     </div>
 

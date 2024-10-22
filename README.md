@@ -1,5 +1,9 @@
 <h1>Calcular-Notas</h1>
-<p>Este programa sirve para que mediante un json que pedirá y validará por la entrada puedas gestionar a los alumnos mediante sus notas</p>
+<h2>Funcion del programa</h2>
+<p>La funcionalidad de este programa será que el usuario pase informacion de unos alumnos en formato json (la entrada de dicha informacion será validad),creará una tabla con la informacion pasada donde</p>
+<p>Podremos destacar la asignatura su media  la nota mas alta de esa asignatura quien la saca y por el contrario la nota mas baja y quien la saca.</p>
+<p>Tambien crearemos unas listas para saber si un alumno aprueba todo(lista verde), suspende alguna asignatura(lista amarilla), promociona de curso(lista azul) o no promociona(lista roja)</p>
+<h2>Tegnologias usadas para el desarrollo de este proyecto</h2>
 <ul>
   <li>Framework utilizado:</li>
   <ul>

@@ -94,14 +94,37 @@ function listaAlumnos(array $alumnos) :array
 
     return $alumnosSuspensos;
 }
-
+/*
+ * Funcion que comprueba que los datos introducidos al programa son correctos
+ * */
 function checkErrors(string $texto) : array
 {
-   
+   //Array donde guardaremos los erroers
     $errors = [];
-
+    //Si el texto esta vacio mostraremos un mensaje de error
     if(empty($texto)) {
-        $errors['texto'][] = "El campo esta vacio inserte un json";
+        $errors['texto'][] = "El campo esta vacio inserte un json para que se pueda procear";
+    }else{
+        $json = json_decode($_POST['texto'], true);
+        if (!is_array($json)) {//SI el json no es un array mostraremos un mensaje de error
+            $errors['texto'][] = "El JSON no contiene un array válido";
+        }else{
+            foreach ($json as $asignaturas  =>$alumnos){//Accedemos a las asignaturas y a todos los alumnos con sus notas
+
+                foreach ($alumnos as $alumno =>$notas){// Accedemos al nombre del alumno
+                    if(!is_string($alumno)){//Si el nombre del alumno no es un string mostramos un mensaje de error
+                        $errors['texto'][] = "El nombre del alumno $alumno en la asignatura $asignaturas no es valido";
+                    }else{
+                        foreach ($notas as $nota){//Accedemos a las notas por individual del alumno
+                            if(!is_numeric($nota) || $nota < 0 || $nota > 10){//Si la nota no es un numero o no cumple con el formato habitual de puntuacion muestra un mensaje de erros
+                                $errors['texto'][] = "La nota $nota del alumno $alumno en la asignatura $asignaturas no es valida";
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
     return $errors;
 }

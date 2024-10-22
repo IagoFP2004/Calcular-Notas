@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
-if (isset($_POST['texto']) && !empty($_POST['texto'])){
-    $data['errores']= checkErrors($_POST["texto"]);
+$data = [];
+if (isset($_POST['texto'])){
+    $data['errors']= checkErrors($_POST["texto"]);
     $data['input']['texto'] = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if(empty($data['errores'])){
+    if(empty($data['errors'])){
             $resultados = [];
             $json = json_decode($_POST['texto'], true); // true para obtener arrays asociativos
 
@@ -96,9 +97,11 @@ function listaAlumnos(array $alumnos) :array
 
 function checkErrors(string $texto) : array
 {
+   
     $errors = [];
-    if(empty($texto)){
-        $errors['texto'][] = "El campo es obligatorio";
+
+    if(empty($texto)) {
+        $errors['texto'][] = "El campo esta vacio inserte un json";
     }
     return $errors;
 }

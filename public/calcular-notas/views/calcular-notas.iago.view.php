@@ -125,9 +125,9 @@
 
                         <label for="texto">Datos a analizar:</label>
 
-                        <textarea class="form-control" name="txt" id="txt" rows="10" placeholder="Inserte el json a analizar"><?php echo isset($data['input']['texto']) ? $data['input']['texto'] : ''; ?></textarea>
+                        <textarea class="form-control" name="texto" id="texto" rows="10" placeholder="Inserte el json a analizar"><?php echo isset($data['input']['texto']) ? $data['input']['texto'] : ''; ?></textarea>
 
-                        <p class="text-danger small"><?php echo isset($data['errores']['texto']) ? $data['errores']['texto'] : ''; ?></p>
+                        <p class="text-danger small"><?php echo isset($data['errors']['texto']) ? implode('<br/>', $data['errors']['texto']) : ''; ?></p>
 
                     </div>
 

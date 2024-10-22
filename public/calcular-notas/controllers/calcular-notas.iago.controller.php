@@ -1,75 +1,78 @@
 <?php
 declare(strict_types=1);
+if (isset($_POST['texto']) && !empty($_POST['texto'])){
+    $data['errores']= checkErrors($_POST["texto"]);
+    $data['input']['texto'] = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);
+    if(empty($data['errores'])){
+            $resultados = [];
+            $json = json_decode($_POST['texto'], true); // true para obtener arrays asociativos
 
-if(isset($_POST['txt'])) {
-    $resultados = [];
-    $json = json_decode($_POST['txt'], true); // true para obtener arrays asociativos
-
-    foreach ($json as $asignatura => $alumnos) {
+            foreach ($json as $asignatura => $alumnos) {
 
 // Inicializamos las variables para cada asignatura
-        $notaMedia = 0;
-        $numeroSuspensos = 0;
-        $notaMasAlta = 0;
-        $quienNotaMasAlta = '';
-        $notaMasBaja = 10;
-        $quienNotaMasBaja = '';
-        $sumaNotas = 0;
-        $numAlumnos = 0;
+                $notaMedia = 0;
+                $numeroSuspensos = 0;
+                $notaMasAlta = 0;
+                $quienNotaMasAlta = '';
+                $notaMasBaja = 10;
+                $quienNotaMasBaja = '';
+                $sumaNotas = 0;
+                $numAlumnos = 0;
 
-        foreach ($alumnos as $alumno => $notas) {
-            $alumnosA = $alumno;
-            $notaMediaAlumno=array_sum($notas)/count($notas);
+                foreach ($alumnos as $alumno => $notas) {
+                    $alumnosA = $alumno;
+                    $notaMediaAlumno=array_sum($notas)/count($notas);
 
-            if($notaMediaAlumno < 5){
-               $numeroSuspensos ++;
-            }
+                    if($notaMediaAlumno < 5){
+                        $numeroSuspensos ++;
+                    }
 
-            foreach ($notas as $nota) {
+                    foreach ($notas as $nota) {
 
 // Sumamos las notas
-                $sumaNotas += $nota;
-                $numAlumnos++;
+                        $sumaNotas += $nota;
+                        $numAlumnos++;
 
 // Nota más alta y quién la sacó
-                if ($nota > $notaMasAlta) {
-                    $notaMasAlta = $nota;
-                    $quienNotaMasAlta = $alumno;
-                }
+                        if ($nota > $notaMasAlta) {
+                            $notaMasAlta = $nota;
+                            $quienNotaMasAlta = $alumno;
+                        }
 
 // Nota más baja y quién la sacó
-                if ($nota < $notaMasBaja) {
-                    $notaMasBaja = $nota;
-                    $quienNotaMasBaja = $alumno;
+                        if ($nota < $notaMasBaja) {
+                            $notaMasBaja = $nota;
+                            $quienNotaMasBaja = $alumno;
+                        }
+                    }
                 }
-            }
-        }
 
 // Calculamos la media después de sumar todas las notas de los alumnos
-        if ($numAlumnos > 0) {
-            $notaMedia = round($sumaNotas / $numAlumnos, 2);
-        }
+                if ($numAlumnos > 0) {
+                    $notaMedia = round($sumaNotas / $numAlumnos, 2);
+                }
 
 // Guardamos los resultados de esta asignatura
-        $resultados[$asignatura] = [
-            'asignatura' => $asignatura,
-            'media' => $notaMedia,
-            'numeroSuspensos' => $numeroSuspensos,
-            'numeroAprobados' => count($alumnos)-$numeroSuspensos,
-            'notaMasAlta' => $notaMasAlta,
-            'quienNotaMasAlta' => $quienNotaMasAlta,
-            'notaMasBaja' => $notaMasBaja,
-            'quienNotaMasBaja' => $quienNotaMasBaja,
-        ];
-    }
+                $resultados[$asignatura] = [
+                    'asignatura' => $asignatura,
+                    'media' => $notaMedia,
+                    'numeroSuspensos' => $numeroSuspensos,
+                    'numeroAprobados' => count($alumnos)-$numeroSuspensos,
+                    'notaMasAlta' => $notaMasAlta,
+                    'quienNotaMasAlta' => $quienNotaMasAlta,
+                    'notaMasBaja' => $notaMasBaja,
+                    'quienNotaMasBaja' => $quienNotaMasBaja,
+                ];
+            }
 
-    $data["resultados"] = $resultados;
-    $data["listas"]=listaAlumnos($alumnos);
+            $data["resultados"] = $resultados;
+            $data["listas"]=listaAlumnos($alumnos);
+        }
 }
 
 function listaAlumnos(array $alumnos) :array
 {
-    $json = json_decode($_POST['txt'], true);
+    $json = json_decode($_POST['texto'], true);
     $alumnosSuspensos = [];
     foreach ($json as $asignatura =>$alumnos){
 
@@ -77,11 +80,11 @@ function listaAlumnos(array $alumnos) :array
             $mediaAsignaturaAlumno = round(array_sum($notas)/count($notas),2);
 
             if(!isset($alumnosSuspensos[$alumno])){
-               $alumnosSuspensos[$alumno]=0;
-           }
+                $alumnosSuspensos[$alumno]=0;
+            }
             if($mediaAsignaturaAlumno<5){
-               $alumnosSuspensos[$alumno]++;
-           }
+                $alumnosSuspensos[$alumno]++;
+            }
 
         }
 
@@ -91,6 +94,14 @@ function listaAlumnos(array $alumnos) :array
     return $alumnosSuspensos;
 }
 
+function checkErrors(string $texto) : array
+{
+    $errors = [];
+    if(empty($texto)){
+        $errors['texto'][] = "El campo es obligatorio";
+    }
+    return $errors;
+}
 
 /*
 * Llamamos a las vistas

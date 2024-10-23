@@ -5,7 +5,7 @@
 <p>Tambien crearemos unas listas para saber si un alumno aprueba todo(lista verde), suspende alguna asignatura(lista amarilla), promociona de curso(lista azul) o no promociona(lista roja)</p>
 <h2>Tegnologias usadas para el desarrollo de este proyecto</h2>
 <ul>
-  <li>Framework utilizado:</li>
+  <li>Plantilla de front:</li>
   <ul>
     <li>SB Admin</li>
   </ul>

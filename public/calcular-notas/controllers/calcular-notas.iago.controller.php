@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 $data = [];
-if (isset($_POST['texto'])){
-    $data['errors']= checkErrors($_POST["texto"]);
-    $data['input']['texto'] = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if(empty($data['errors'])){
+if (isset($_POST['texto'])){//Si el POST en este caso con el name texto existe
+    $data['errors']= checkErrors($_POST["texto"]);//Llamamos a la funcion que comprueba si existen errores
+    $data['input']['texto'] = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);//Saneamos el texto
+    if(empty($data['errors'])){//Si no existen errores ejecuta el programa
             $resultados = [];
-            $json = json_decode($_POST['texto'], true); // true para obtener arrays asociativos
+            $json = json_decode($_POST['texto'], true); //Convertimos el json en un array
 
             foreach ($json as $asignatura => $alumnos) {
 
@@ -70,20 +70,22 @@ if (isset($_POST['texto'])){
             $data["listas"]=listaAlumnos($alumnos);
         }
 }
-
+/*
+ * Funcion que define a que lista pertenece cada alumno
+ * */
 function listaAlumnos(array $alumnos) :array
 {
-    $json = json_decode($_POST['texto'], true);
+    $json = json_decode($_POST['texto'], true); //Convertimos el json en un array
     $alumnosSuspensos = [];
     foreach ($json as $asignatura =>$alumnos){
 
         foreach ($alumnos as $alumno =>$notas){
-            $mediaAsignaturaAlumno = round(array_sum($notas)/count($notas),2);
+            $mediaAsignaturaAlumno = round(array_sum($notas)/count($notas),2);//Se hace la media de cada alumno
 
-            if(!isset($alumnosSuspensos[$alumno])){
+            if(!isset($alumnosSuspensos[$alumno])){//Si en el array de suspensos no existe el alumno se crea con el valor 0
                 $alumnosSuspensos[$alumno]=0;
             }
-            if($mediaAsignaturaAlumno<5){
+            if($mediaAsignaturaAlumno<5){//Si la media es menor a 5 se incrementaran sus suspensos
                 $alumnosSuspensos[$alumno]++;
             }
 
@@ -116,7 +118,7 @@ function checkErrors(string $texto) : array
                         $errors['texto'][] = "El nombre del alumno $alumno en la asignatura $asignaturas no es valido";
                     }else{
                         foreach ($notas as $nota){//Accedemos a las notas por individual del alumno
-                            if(!is_numeric($nota) || $nota < 0 || $nota > 10){//Si la nota no es un numero o no cumple con el formato habitual de puntuacion muestra un mensaje de erros
+                            if(!is_numeric($nota) || $nota < 0 || $nota > 10){//Si la nota no es un numero o no cumple con el formato habitual de puntuacion muestra un mensaje de error
                                 $errors['texto'][] = "La nota $nota del alumno $alumno en la asignatura $asignaturas no es valida";
                             }
                         }
@@ -126,7 +128,7 @@ function checkErrors(string $texto) : array
             }
         }
     }
-    return $errors;
+    return $errors;//Devolvemos los errores
 }
 
 /*

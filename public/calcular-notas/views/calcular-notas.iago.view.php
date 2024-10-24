@@ -10,10 +10,10 @@
 
 <div class="row">
     <div class="col-12">
-            <?php if (isset($data["resultados"])){ ?>
+            <?php if (isset($data["resultados"])){ ?><!--Si existen los resultados-->
         <div class="card shadow mb-4">
-            <table border="1px solid">
-                <thead>
+            <table border="1px solid"><!--Creamos una tabla-->
+                <thead><!--Introducimos las cabeceras de la tabla-->
                 <th>Modulo</th>
                 <th>Media</th>
                 <th>nSuspensos</th>
@@ -24,12 +24,14 @@
                 <th>Quien</th>
                 </thead>
 
-                <tbody>
+                <tbody><!--Para el cuerpo de la tabla-->
                 <?php
 
-                foreach ($data["resultados"] as $asignatura =>$result) {
+                foreach ($data["resultados"] as $asignatura =>$result) {//Recorremos el array con los resultados
                     echo "<tr>";
-
+                    /*
+                     * Introducimos todos los valores en la tabla
+                     * */
                     echo "<td>" . $result['asignatura'] . "</td>";
                     echo "<td>" . $result['media'] . "</td>";
                     echo "<td>" . $result['numeroSuspensos'] . "</td>";
@@ -49,7 +51,8 @@
 
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    <?php if(isset($data['listas'])){?>
+                    <?php if(isset($data['listas'])){?><!--Si existen las listas donde los alumnos estan organizados ejecuta
+                    Nos recorreremos las listas y accederemos a cada alumno para que pueda ser organizado-->
                     <div class="alert alert-success" >
                         <?php
                         foreach($data['listas'] as $alumno=>$suspensos){
